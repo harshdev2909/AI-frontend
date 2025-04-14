@@ -27,7 +27,7 @@ const Page = () => {
   const [response, setResponse] = useState<RecommendationResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e : any) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
@@ -35,7 +35,7 @@ const Page = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e : any) => {
     e.preventDefault();
     setLoading(true);
     try {
