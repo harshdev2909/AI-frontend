@@ -14,7 +14,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className="fixed h-full md:w-64 p-5 shadow-lg transition-all duration-300"
+      className="fixed h-full md:w-64 p-5 shadow-lg transition-all duration-300 z-50"
       style={{
         background: "linear-gradient(135deg, #1e1e2f, #2d1b4e, #4a1a6e)",
       }}
@@ -27,24 +27,27 @@ const Sidebar = () => {
 
       <ul>
         {navList.map((item) => (
-          <Link href={item.route} key={item.id}>
-            <div
-              className={`flex items-center gap-2 text-gray-300 p-3 cursor-pointer rounded-lg mb-3 transition-all duration-300 hover:bg-gradient-to-r from-purple-600/20 to-indigo-600/20 hover:text-white hover:scale-105 ${
-                item.route === path && "bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-white"
+          <li key={item.id}>
+            <Link
+              href={item.route}
+              className={`flex items-center gap-2 text-gray-300 p-3 cursor-pointer rounded-lg mb-3 transition-all duration-300 hover:bg-gradient-to-r from-purple-600/20 to-indigo-600/20 hover:text-white ${
+                item.route === path &&
+                "bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-white"
               }`}
+              onClick={() => console.log(`Clicked ${item.name}`)}
             >
               <div className="text-2xl">
                 <item.icon className="transition-transform duration-300 hover:rotate-12" />
               </div>
               <h2>{item.name}</h2>
-            </div>
-          </Link>
+            </Link>
+          </li>
         ))}
       </ul>
 
       <div className="absolute bottom-10 w-[80%]">
         <Progress
-          value={(userCourseList.length / 5) * 100}
+          value={userCourseList ? (userCourseList.length / 5) * 100 : 0}
           className="h-2"
           style={{
             background: "#2d1b4e",
@@ -52,7 +55,7 @@ const Sidebar = () => {
           }}
         />
         <h2 className="text-sm my-2 text-gray-200 bg-gradient-to-r from-gray-300 to-gray-500 bg-clip-text">
-          {userCourseList.length} out of 5 Courses created
+          {userCourseList ? userCourseList.length : 0} out of 5 Courses created
         </h2>
         <Link href="/upgrade">
           <h2 className="text-xs text-gray-400 hover:text-purple-300 transition-colors">
@@ -61,21 +64,9 @@ const Sidebar = () => {
         </Link>
       </div>
 
-      {/* Decorative Glow Effect */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-900/20 to-transparent opacity-50 blur-md"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-900/20 to-transparent opacity-50 blur-md pointer-events-none" />
     </div>
   );
 };
-
-// Custom CSS for animations (add to your global stylesheet or use a custom class)
-const styles = `
-  @keyframes pulse-slow {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
-  }
-  .animate-pulse-slow {
-    animation: pulse-slow 4s ease-in-out infinite;
-  }
-`;
 
 export default Sidebar;
