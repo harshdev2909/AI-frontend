@@ -6,6 +6,7 @@ import {
 } from "react-icons/lu";
 import { FaYoutube } from "react-icons/fa";
 import { RiBookShelfLine } from "react-icons/ri";
+import { GoProjectRoadmap } from "react-icons/go";
 type NavListType = {
   id: number;
   name: string;
@@ -43,5 +44,11 @@ export const navList: NavListType[] = [
     name: "Recommendations",
     icon: RiBookShelfLine,
     route: "/dashboard/recommendations",
+  },
+  {
+    id: 6,
+    name: "Roadmap",
+    icon: GoProjectRoadmap,
+    route: "/dashboard/roadmap",
   },
 ];
