@@ -6,7 +6,7 @@ export type Environment = "development" | "production" | "test";
 
 export class BaseEnvironment {
   defaultEnvironmentValues = {
-    HOST_URL: "http://localhost:3000",
+    HOST_URL: "https://ai-frontend-flame-two.vercel.app",
     GOOGLE_GEMENI_API_KEY: "my-api-key",
     DRIZZLE_DATABASE_URL:
       "postgresql://myuser:mypassword@mydbhost.com/mydatabase",

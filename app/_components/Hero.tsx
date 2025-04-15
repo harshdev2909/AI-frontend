@@ -12,7 +12,7 @@ const Hero = () => {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto h-full max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
+      <div className="mx-auto h-full max-w-screen-xl mb-20 px-4 py-32 lg:flex lg:items-center">
         <div className="mx-auto max-w-xl text-center">
           <GradientTextAnimation title="Introducing AI Course Generator" />
           <WordPullUp

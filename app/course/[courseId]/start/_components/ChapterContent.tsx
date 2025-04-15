@@ -9,8 +9,8 @@ type ChapterContentProps = {
 };
 
 const videoOpts = {
-  height: "390",
-  width: "640",
+  height: "490",
+  width: "950",
   playerVars: {
     // https://developers.google.com/youtube/player_parameters
     autoplay: 0,
@@ -31,11 +31,12 @@ const ChapterContent = ({ chapter, content }: ChapterContentProps) => {
       <p className="text-gray-500">{chapter?.description}</p>
 
       {/* video */}
-      <div className="flex justify-center my-6">
-        <YouTube
+      <div className="flex justify-center rounded-xl h-full bg-red-400 my-6">
+        <YouTube 
           videoId={content?.videoId}
           opts={videoOpts}
           onReady={onPlayerReady}
+          
         />
       </div>
 
